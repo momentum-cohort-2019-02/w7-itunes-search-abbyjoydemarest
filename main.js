@@ -1,5 +1,5 @@
 /* globals fetch */
-console.log('work?')
+console.log('work?');
 
 function getArtistMusic() {
     console.log('work?2')
@@ -7,20 +7,32 @@ function getArtistMusic() {
         .then(function (response) {
             if (!response.ok) {
                 console.log('work?3')
-                throw Error(response.statusText)
+                throw Error(response.statusText);
             }
-            console.log('work?4')
+            console.log('work?4');
             return response.json()
-        })
+        });
 }
 
 document.addEventListener('DOMContentLoaded', function () {
     console.log('work?5')
     getArtistMusic()
-        .then(function (json) {
-            console.log('work?6')
-            console.log(json)
-        })
+        .then(function (artistMusicData) {
+            console.log(artistMusicData)
+            let idx
+            for (idx = 0; idx < artistMusicData.results.length; idx++){
+                const artist = artistMusicData.results[idx].artistName
+                document.querySelector('#artist-name').innerHTML = artist
+                const coverPhoto = artistMusicData.results[idx].artworkUrl30
+                document.querySelector('#image-url').innerHTML = coverPhoto
+                const trackName = artistMusicData.results[idx].trackName
+                document.querySelector('#track-name').innerHTML = trackName
+                    console.log(artist, 'yes')
+                    console.log('work?6')
+            }
+
+
+            })
         console.log('work?7')
 })
 console.log('work?8')
