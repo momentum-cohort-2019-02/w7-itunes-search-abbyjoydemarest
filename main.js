@@ -19,19 +19,19 @@ function getArtistMusic(artistInput) {
             return response.json()
         });
 }
-function updateArtistMusic(artistiInput) {
+function updateArtistMusic(artistInput) {
     getArtistMusic(artistInput)
         .then(function (artistMusicData) {
             console.log(artistMusicData)
             let idx
             for (idx = 0; idx < artistMusicData.results.length; idx++){
                 const artist = artistMusicData.results[idx].artistName
-                document.query('#artist-name').innerHTML = artist
+                query('#artist-name').innerHTML = artist
                 const coverPhoto = artistMusicData.results[idx].artworkUrl30
-                document.query('#image-url').innerHTML = coverPhoto
+                query('#image-url').innerHTML = coverPhoto
                 const trackName = artistMusicData.results[idx].trackName
-                document.query('#track-name').innerHTML = trackName
-                    console.log(artist, 'yes')
+                query('#track-name').innerHTML = trackName
+                    console.log(artist, 'work?5')
                     console.log('work?6')
             }
 
@@ -40,9 +40,11 @@ function updateArtistMusic(artistiInput) {
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('work?5')
+    console.log('work?7')
+
+
+query('#artist').addEventListener('change', function (event) {
+    updateArtistMusic(event.target.value)
+    console.log('work?8')
+}) 
 })
-document.query('#artist-input').addEventListener('change', function (event) {
-    updateAritistMusic(event.target.value)
-})
-console.log('work?8')
