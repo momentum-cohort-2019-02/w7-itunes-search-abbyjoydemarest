@@ -1,8 +1,9 @@
 *{
     margin: 0 auto;
-    background-color:rgb(255, 184, 136);
+
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: 300;
+    padding:.5rem;
 } 
 #choice-input{
     color:rgb(27,39,146);
@@ -25,6 +26,8 @@ input{
     flex-direction:column;
     flex-wrap: wrap;
     justify-content: center;
+    border: 0.05rem solid black;
+    border-radius: 5px;
 }
 .song-info{
     list-style: none;
@@ -34,9 +37,83 @@ input{
 }
 .artist-name{
     font-weight: 500;
-    font-style: normal;
+    font-style: bold;
+    font-size: 1.25rem;
 }
 .song-name{
     font-weight:800;
     font-style: italic;
 }
+.cover-image{
+    background: black;
+    padding: 1rem;
+    border-radius: 12rem;
+    border: 0.25rem solid rgb(10, 10, 10);
+    border-right: solid rgb(40, 40, 40);
+    border-left: solid rgb(40, 40, 40);
+}
+.cover-image-inner{
+    background: black;
+    padding: 1rem;
+    border-radius: 5rem;
+    border: 0.25rem solid rgb(10, 10, 10);
+    border-right: solid rgb(40, 40, 40);
+    border-left: solid rgb(40, 40, 40);
+}
+.record-player{
+    background-color:rgb(255, 184, 136);
+    width: 220px;
+    height: 180px;
+    border-radius: 5px;
+    border-right: 0.25rem solid rgb(235, 235, 235);
+    border-bottom: 0.25rem solid rgb(235, 235, 235);
+    display:flex;
+    flex-direction:row;
+}
+#record-on-player{
+    width:60px;
+    height:60px;
+    background-color:rgb(60, 60, 60);
+    border-radius: 5rem;
+    border-top: solid rgb(80, 80, 80);
+    border-bottom: solid rgb(80, 80, 80);
+    border-right: solid rgb(90, 90, 90);
+    border-left: solid rgb(90, 90, 90);
+}
+.empty-record{
+    background-color:rgb(60, 60, 60);
+    border-radius: 5rem;
+    padding:1rem;
+    border-top: solid rgb(80, 80, 80);
+    border-bottom: solid rgb(80, 80, 80);
+    border-right: solid rgb(90, 90, 90);
+    border-left: solid rgb(90, 90, 90);
+}
+#outer-round{
+    width:136px;
+    height:136px;
+    border-radius: 7rem;
+}
+#outer-round-cover{
+    border-radius: 7rem;
+}
+#needle{
+    display:flex;
+    flex-direction: column;
+
+}
+.record-needle{
+    background:rgb(90, 90, 90);
+    border-right: .15rem solid rgb(219, 148, 100);
+    width: .5px;
+
+}
+#needle-body{
+    height: 110px;
+}
+#needle-tip{
+    background: rgb(60, 60, 60);
+    height: 10px;
+    border-bottom: .15rem solid rgb(219, 148, 100);
+}
+

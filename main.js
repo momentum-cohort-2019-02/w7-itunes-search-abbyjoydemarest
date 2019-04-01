@@ -40,7 +40,7 @@ function updateArtistMusic(artistInput) {
 
                 //define all variables wanted from json
                 let artistName = artistMusicData.results[idx].artistName
-                let coverImg = artistMusicData.results[idx].artworkUrl30
+                let coverImg = artistMusicData.results[idx].artworkUrl60
                 let songName = artistMusicData.results[idx].trackName
                 let songURL = artistMusicData.results[idx].previewUrl
                 console.log('artistName', artistName);
@@ -57,7 +57,7 @@ function updateArtistMusic(artistInput) {
                 <source src="${songURL}" type="audio/ogg"/>
                 <source src="${songURL}" type="audio/mpeg"/>
                 Your browser does not support playing an audio element. </audio>`
-                songDetails.innerHTML = `<ul class="song-info"><li class="artist-name"><strong>${artistName}</strong></li>| <li class="song-name"><strong>${songName}</strong></li></ul>`; albumCover.innerHTML = `<img src="${coverImg}">`
+                songDetails.innerHTML = `<ul class="song-info"><li class="artist-name"><strong class="a-name">${artistName} |</strong></li><li class="song-name"><strong class="s-name">${songName}</strong></li></ul>`; albumCover.innerHTML = `<div class="cover-image-inner"><img class="cover-image-inner" src="${coverImg}"></div>`
                 //query("#artist-name").innerHTML = artistName
                 //query("#artwork").innerHTML = `<img src="${cover}>`
                 //query("#track-name").innerHTML = songName
@@ -83,3 +83,4 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("work?8");
     })
 });
+//transform: rotate(10deg);
