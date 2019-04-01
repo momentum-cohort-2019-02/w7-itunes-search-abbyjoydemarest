@@ -40,7 +40,7 @@ function updateArtistMusic(artistInput) {
 
                 //define all variables wanted from json
                 let artistName = artistMusicData.results[idx].artistName
-                let coverImg = artistMusicData.results[idx].artworkUrl100
+                let coverImg = artistMusicData.results[idx].artworkUrl30
                 let songName = artistMusicData.results[idx].trackName
                 let songURL = artistMusicData.results[idx].previewUrl
                 console.log('artistName', artistName);
@@ -57,7 +57,7 @@ function updateArtistMusic(artistInput) {
                 <source src="${songURL}" type="audio/ogg"/>
                 <source src="${songURL}" type="audio/mpeg"/>
                 Your browser does not support playing an audio element. </audio>`
-                songDetails.innerText = `${artistName} ${songName}`; albumCover.innerHTML = `<img src="${coverImg}">`
+                songDetails.innerHTML = `<ul class="song-info"><li class="artist-name"><strong>${artistName}</strong></li>| <li class="song-name"><strong>${songName}</strong></li></ul>`; albumCover.innerHTML = `<img src="${coverImg}">`
                 //query("#artist-name").innerHTML = artistName
                 //query("#artwork").innerHTML = `<img src="${cover}>`
                 //query("#track-name").innerHTML = songName
@@ -65,7 +65,7 @@ function updateArtistMusic(artistInput) {
                 console.log('songDetails', songDetails)
                 console.log('albumCover', albumCover)
                 console.log('playSong', playSong)
-                song.append(songDetails, albumCover, playSong)
+                song.append(albumCover, songDetails, playSong)
                 console.log('song', song)
                 listOfSongsDiv.append(song)
                 console.log('listOfSongsDiv', listOfSongsDiv)
