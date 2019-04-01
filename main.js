@@ -42,29 +42,31 @@ function updateArtistMusic(artistInput) {
                 let artistName = artistMusicData.results[idx].artistName
                 let coverImg = artistMusicData.results[idx].artworkUrl100
                 let songName = artistMusicData.results[idx].trackName
-                let songUrl = artistMusicData.results[idx].previewUrl
+                let songURL = artistMusicData.results[idx].previewUrl
                 console.log('artistName', artistName);
                 console.log('coverImg', coverImg);
                 console.log('songName', songName);
-                console.log('songUrl', songUrl);
+                console.log('songURL', songURL);
                 //enter those variables into the song div via the songDetails Div or albumCover div
-                let songAudio = new Audio(songUrl)
+                let songAudio = new Audio(songURL)
                 console.log('songAudio', songAudio);
                 playSong.addEventListener('click', function () {
                     songAudio.play()
                 })
                 playSong.innerHTML = `<audio controls="controls">
-                <source src="${songUrl}" type="audio/ogg" />
-                <source src="${songUrl}" type="audio/mpeg" />
-                Your browser does not support playing and audio element. </audio>`
-                songDetails.innerText = artistName + songName; albumCover.innerHTML = `<img src="${coverImg}">`
+                <source src="${songURL}" type="audio/ogg"/>
+                <source src="${songURL}" type="audio/mpeg"/>
+                Your browser does not support playing an audio element. </audio>`
+                songDetails.innerText = `${artistName} ${songName}`; albumCover.innerHTML = `<img src="${coverImg}">`
                 //query("#artist-name").innerHTML = artistName
                 //query("#artwork").innerHTML = `<img src="${cover}>`
                 //query("#track-name").innerHTML = songName
                 //query("#song").innerHTML = `${songTrack}`
                 console.log('songDetails', songDetails)
                 console.log('albumCover', albumCover)
-                song.appendChild(albumCover,songDetails, playSong) 
+                console.log('playSong', playSong)
+                song.append(songDetails, albumCover, playSong)
+                console.log('song', song)
                 listOfSongsDiv.append(song)
                 console.log('listOfSongsDiv', listOfSongsDiv)
             }
