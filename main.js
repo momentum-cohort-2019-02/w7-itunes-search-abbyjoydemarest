@@ -31,27 +31,40 @@ function updateArtistMusic(artistInput) {
                 const song = document.createElement('div')
                 const songDetails = document.createElement('div') 
                 const albumCover = document.createElement('div') 
+                const playSong = document.createElement('div')
                 console.log()
                 song.classList.add('song')
                 songDetails.classList.add('song-details')
                 albumCover.classList.add('cover-image')
+                playSong.classList.add('playAudio')
 
                 //define all variables wanted from json
                 let artistName = artistMusicData.results[idx].artistName
-                let cover = artistMusicData.results[idx].artworkUrl30
+                let coverImg = artistMusicData.results[idx].artworkUrl100
                 let songName = artistMusicData.results[idx].trackName
+                let songUrl = artistMusicData.results[idx].previewUrl
                 console.log('artistName', artistName);
-                console.log('cover', cover);
+                console.log('coverImg', coverImg);
                 console.log('songName', songName);
+                console.log('songUrl', songUrl);
                 //enter those variables into the song div via the songDetails Div or albumCover div
-                songDetails.innerText = artistName + songName; albumCover.innerHtml = `<img src="${cover}"`
+                let songAudio = new Audio(songUrl)
+                console.log('songAudio', songAudio);
+                playSong.addEventListener('click', function () {
+                    songAudio.play()
+                })
+                playSong.innerHTML = `<audio controls="controls">
+                <source src="${songUrl}" type="audio/ogg" />
+                <source src="${songUrl}" type="audio/mpeg" />
+                Your browser does not support playing and audio element. </audio>`
+                songDetails.innerText = artistName + songName; albumCover.innerHTML = `<img src="${coverImg}">`
                 //query("#artist-name").innerHTML = artistName
                 //query("#artwork").innerHTML = `<img src="${cover}>`
                 //query("#track-name").innerHTML = songName
                 //query("#song").innerHTML = `${songTrack}`
                 console.log('songDetails', songDetails)
                 console.log('albumCover', albumCover)
-                song.appendChild(songDetails, albumCover)
+                song.appendChild(albumCover,songDetails, playSong) 
                 listOfSongsDiv.append(song)
                 console.log('listOfSongsDiv', listOfSongsDiv)
             }
