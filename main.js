@@ -24,7 +24,7 @@ function updateArtistMusic(artistInput) {
         .then(function (artistMusicData) {
             console.log(artistMusicData);
             const listOfSongsDiv = document.getElementById('list-of-songs')
-            listOfSongsDiv.innerHtml = ""
+            listOfSongsDiv.innerHTML = ""
             let idx;
             for (idx = 0; idx < artistMusicData.results.length; idx++){
                 //AJ Bryce: create div with other divs in it to show all songs/info fir artist
@@ -57,7 +57,8 @@ function updateArtistMusic(artistInput) {
                 <source src="${songURL}" type="audio/ogg"/>
                 <source src="${songURL}" type="audio/mpeg"/>
                 Your browser does not support playing an audio element. </audio>`
-                songDetails.innerHTML = `<ul class="song-info"><li class="artist-name"><strong class="a-name">${artistName} |</strong></li><li class="song-name"><strong class="s-name">${songName}</strong></li></ul>`; albumCover.innerHTML = `<div class="cover-image-inner"><img class="cover-image-inner" src="${coverImg}"></div>`
+                songDetails.innerHTML = `<ul class="song-info"><li class="artist-name"><strong class="a-name">${artistName} |</strong></li><li class="song-name"><strong class="s-name">${songName}</strong></li></ul>`;
+                albumCover.innerHTML = `<div class="cover-image-inner"><img class="cover-image-inner" src="${coverImg}"></div>`
                 //query("#artist-name").innerHTML = artistName
                 //query("#artwork").innerHTML = `<img src="${cover}>`
                 //query("#track-name").innerHTML = songName
@@ -77,10 +78,10 @@ function updateArtistMusic(artistInput) {
 document.addEventListener("DOMContentLoaded", function () {
     console.log("work?7");
 
-
     query("#artist").addEventListener("change", function (event) {
         updateArtistMusic(event.target.value);
         console.log("work?8");
     })
+
 });
 //transform: rotate(10deg);
